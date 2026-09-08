@@ -1,0 +1,90 @@
+DELTA EST EN LIGNE
+==================
+
+Le site :   https://jul3zzz.github.io/delta/
+Le depot :  https://github.com/jul3zzz/delta
+
+Tout est deja fait : le depot a ete cree, les fichiers envoyes, et
+GitHub Pages est active sur la branche "main". Il n'y a plus rien a
+configurer.
+
+
+-----------------------------------------------------------------
+METTRE A JOUR LE SITE APRES UNE MODIFICATION
+-----------------------------------------------------------------
+
+Une seule chose a retenir : on modifie UNIQUEMENT le dossier src/.
+Les fichiers delta.html et index.html sont fabriques automatiquement,
+il ne faut jamais les editer a la main.
+
+Ouvrir un terminal dans le dossier delta :
+
+    cd "C:\Users\jules\OneDrive\Desktop\bot discord projet\delta"
+
+Puis, dans l'ordre :
+
+    node _check.js      <-- verifie que rien n'est casse
+    node build.js       <-- refabrique delta.html et index.html
+    git add -A
+    git commit -m "ce que j'ai change"
+    git push
+
+Compter une a deux minutes avant que le site en ligne soit a jour
+(GitHub reconstruit la page a chaque envoi).
+
+Si "node _check.js" affiche des lignes avec une croix, NE PAS envoyer :
+il faut d'abord corriger. Le message dit exactement quoi.
+
+
+-----------------------------------------------------------------
+VOIR LE SITE AVANT DE L'ENVOYER
+-----------------------------------------------------------------
+
+    node _serve.js
+
+puis ouvrir  http://localhost:4177  dans le navigateur.
+Pour arreter : Ctrl+C dans le terminal.
+
+
+-----------------------------------------------------------------
+SI GITHUB DEMANDE UN MOT DE PASSE
+-----------------------------------------------------------------
+
+Une fenetre "Git Credential Manager" peut s'ouvrir au moment du push.
+Se connecter avec le compte jul3zzz. C'est demande une seule fois,
+Windows retient ensuite la connexion.
+
+
+-----------------------------------------------------------------
+CE QUI N'EST PAS ENVOYE SUR GITHUB
+-----------------------------------------------------------------
+
+Le fichier .gitignore exclut volontairement :
+
+    data/          les fonds de carte telecharges (4 Mo, inutiles :
+                   "node _fonds.js" les retelecharge tout seul)
+    node_modules/
+    planche.html   la planche de controle des dessins
+
+Rien d'autre n'est exclu : le site complet est bien en ligne.
+
+
+-----------------------------------------------------------------
+EN CAS DE PEPIN
+-----------------------------------------------------------------
+
+"rejected ... fetch first"
+    Quelqu'un (ou un autre ordinateur) a modifie le depot entre-temps.
+        git pull --rebase
+        git push
+
+"nothing to commit"
+    Il n'y a rien de nouveau a envoyer : c'est que le build n'a pas
+    ete relance. Faire "node build.js" puis recommencer.
+
+La page en ligne ne change pas
+    Attendre deux minutes, puis recharger avec Ctrl+F5 (le navigateur
+    garde souvent l'ancienne version en memoire).
+
+Verifier ou en est la construction :
+    https://github.com/jul3zzz/delta/actions
