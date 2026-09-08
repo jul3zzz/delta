@@ -1,0 +1,212 @@
+DELTA (δ) — histoire, géographie et EMC pour la 3e et le brevet
+================================================================
+
+Un site complet pour réviser le programme d'histoire-géographie-EMC de
+troisième : des cours écrits pour être lus avec plaisir, bourrés
+d'anecdotes vérifiées, des cartes bâties sur des contours réels, des exercices
+auto-corrigés, des brevets blancs au format officiel, douze mini-jeux,
+une collection de fiches à faire tomber au tirage, une boutique et un
+profil personnalisable.
+
+
+CE QUE CONTIENT LE SITE
+-----------------------
+
+44 chapitres de cours
+  · 21 en histoire (guerres totales, totalitarismes, génocide, Vichy et
+    Résistance, guerre froide, décolonisation, Algérie, construction
+    européenne, 1989-1991, monde depuis 1991, Ve République, place des
+    femmes)
+  · 13 en géographie (aires urbaines, espaces productifs, faible
+    densité, aménagement, outre-mer, Union européenne, puissance
+    française, mondialisation, mobilités, développement durable,
+    méthode du croquis)
+  · 10 en EMC (valeurs et symboles, laïcité, nationalité et
+    citoyenneté, élections, institutions, justice, défense, médias et
+    esprit critique, engagement, discriminations)
+  Chaque chapitre contient au moins une anecdote, un encadré
+  « à retenir », des définitions, souvent une carte ou une frise, des
+  chiffres clés, un document source et des repères datés.
+
+173 exercices auto-corrigés
+  Cinq formats : QCM, vrai/faux multiple, réponse écrite, date à
+  trouver, remise en ordre chronologique. Chaque bonne réponse rapporte
+  des δ, de l'XP et fait bouger le classement Elo.
+
+4 brevets blancs au format officiel du DNB
+  2 heures, 50 points, la structure exacte de l'épreuve :
+    Exercice 1 — Analyser et comprendre des documents ......... 20 pts
+    Exercice 2 — Maîtriser différents langages ................ 20 pts
+    Exercice 3 — Mobiliser des compétences d'EMC .............. 10 pts
+  Chronomètre, documents (textes et graphiques), tâche cartographique
+  cliquable, développements construits.
+
+12 mini-jeux
+  Frise chronologique · La bonne année (curseur) · Qui suis-je ? ·
+  Est ou Ouest ? · Carte muette France · Carte muette Europe ·
+  Carte muette outre-mer · Le bon figuré · Le mot juste ·
+  Qui fait quoi ? · Vrai ou intox ? · Quiz éclair.
+  Trois vies, un score, un gain d'Elo à la fin.
+
+67 fiches de collection
+  Six raretés (Trace 57 %, Témoignage 25 %, Archive 12 %,
+  Monument 4,6 %, Légende 1,2 %, Delta 0,2 %). Chaque fiche porte un
+  dessin et un texte complet. Pitié : un Monument garanti tous les
+  30 tirages, une fiche Delta tous les 150.
+
+48 repères chronologiques, 41 succès,
+9 thèmes, 15 avatars, 10 bannières, 7 cadres, 12 titres, 7 fonds.
+
+21 planches d'atlas (8 en histoire, 13 en géographie)
+  France : régions · réseaux urbains · macrocéphalie · espaces
+  productifs · relief et fleuves · transports · risques majeurs ·
+  Occupation · front de 1914-1918.
+  Europe : 1914 · guerre froide · élargissements · UE/euro/Schengen.
+  Monde : empires coloniaux 1914 · 1942 · monde bipolaire ·
+  indépendances 1945-1980 · grandes puissances · francophonie ·
+  migrations · la France dans le monde.
+  Douze de ces planches sont reprises directement dans les cours,
+  via la section ['atlas', id, légende] : aucune donnée n'est dupliquée.
+
+DES FONDS DE CARTE RÉELS
+-----------------------
+
+Les quatre fonds de carte ne sont pas dessinés à la main : ils sont
+GÉNÉRÉS à partir de données géographiques officielles par
+`node _fonds.js`, qui télécharge, projette, simplifie et normalise :
+
+  FR    13 régions officielles (données IGN via france-geojson),
+        projection Lambert conforme conique — celle des cartes
+        scolaires françaises.
+  EUR   42 pays (Natural Earth 1:50 m), même projection conique.
+  MONDE 175 pays (Natural Earth 1:110 m), projection Miller. Chaque
+        pays porte le code de son continent comme GROUPE : on peut donc
+        colorier un pays précis (fill: { deu: ... }) ou tout un
+        continent (fill: { af: ... }) avec le même fond.
+  DROM  vignettes des territoires ultramarins, à leur forme réelle.
+
+Chaque fond porte aussi un dictionnaire de LIEUX (`pt`) : environ
+60 villes et repères géographiques, projetés exactement comme la carte.
+Toutes les annotations (points, flèches, bandes) sont donc placées par
+NOM DE LIEU et jamais « à l'œil » :
+
+  ['ancre', 'FR', x, y, échelle, [['lyon', 'metropole', 'h', 6, 'Lyon']]]
+  ['flux',  'MONDE', x, y, échelle, [['paris', 'noumea', -40, 'g']]]
+  ['bande', 'FR', x, y, échelle, ['bayonne', 'pyrenees', 'perpignan'], 'b', 7]
+  ['aire',  'FR', x, y, échelle, [['alpes', 15, 7, -38]], 'm', .42]
+
+Si tu changes l'échelle ou la position d'une carte, les annotations
+suivent automatiquement.
+
+
+COMPTE ET PERSONNALISATION
+--------------------------
+
+Création de compte avec pseudo et mot de passe, plusieurs comptes
+possibles sur le même appareil. Le profil affiche une carte
+personnalisable (avatar dessiné, bannière, cadre, titre, fond) et des
+statistiques détaillées. La boutique permet d'acheter des thèmes qui
+repeignent entièrement l'interface, en mode clair comme en mode
+sombre.
+
+Un système de progression complet : niveaux et XP, classement Elo avec
+huit rangs (de « Curieux d'archives » à « Lauréat Delta »), série
+quotidienne avec bonus, succès.
+
+
+LIMITES À CONNAÎTRE
+-------------------
+
+· Les comptes sont enregistrés UNIQUEMENT dans le navigateur
+  (localStorage). Rien n'est envoyé sur Internet, il n'y a pas de
+  serveur : n'utilise pas un vrai mot de passe important, et
+  n'attends pas de retrouver ta progression sur un autre appareil.
+  Le profil propose un export/import de sauvegarde pour cela.
+· Les développements construits des brevets blancs ne peuvent pas être
+  corrigés automatiquement : ils sont AUTO-ÉVALUÉS. On te montre un
+  corrigé type détaillé et tu coches les éléments que tu as réellement
+  traités. La note obtenue est donc indicative et dépend de ton
+  honnêteté.
+· Les sujets de brevet sont écrits d'après le format et l'esprit des
+  annales officielles ; ce ne sont pas des sujets recopiés.
+· Les documents « sources » signalés comme reconstitués le sont : ils
+  s'appuient sur des témoignages réels mais ne sont pas des citations
+  exactes. Les citations authentiques (Schuman, la charte de la
+  laïcité, le code de procédure pénale, les appels de 1940) sont
+  données telles quelles.
+· Les contours des cartes sont réels mais SIMPLIFIÉS (généralisation
+  cartographique) : ils servent à localiser et à raisonner, pas à mesurer
+  une distance ou une superficie.
+· Les chiffres sont des ordres de grandeur, à jour à la rédaction.
+
+
+ORGANISATION DES FICHIERS
+-------------------------
+
+Tout se modifie dans src/ ; les deux fichiers HTML sont GÉNÉRÉS et ne
+doivent jamais être édités à la main.
+
+  src/00-head.html ......... titre, polices, toute la feuille de style
+  src/10-body.html ......... les trois conteneurs de la page
+  src/20-core.js ........... stockage, comptes, économie, Elo, routeur
+  src/21-shell.js .......... écran de connexion, rail, barre d'état
+  src/24-fonds.js .......... FONDS DE CARTE — fichier GÉNÉRÉ, ne jamais
+                             l'éditer à la main (voir _fonds.js)
+  src/25-carte.js .......... MOTEUR DE CARTES : primitives de dessin,
+                             annotations ancrées, frises, graphiques,
+                             légendes
+  src/30*.js ............... cours d'histoire
+  src/31*.js ............... cours de géographie
+  src/32-cours-emc.js ...... cours d'EMC
+  src/40|41|42-exos-*.js ... exercices
+  src/50*.js ............... fiches de collection
+  src/55-brevet.js ......... les quatre sujets de brevet blanc
+  src/60-boutique.js ....... thèmes, avatars, objets, succès
+  src/65-jeux.js ........... les douze mini-jeux et leur moteur commun
+  src/70..73-vues*.js ...... les écrans
+  src/90-boot.js ........... démarrage
+
+  build.js ................. assemble src/ -> delta.html + index.html
+  _fonds.js ................ REGÉNÈRE src/24-fonds.js depuis les données
+                             géographiques officielles (téléchargement
+                             unique dans data/)
+  _check.js ................ vérifie la cohérence de toutes les données
+  _planche.js .............. sort planche.html pour relire les dessins
+  _serve.js ................ petit serveur local (port 4177)
+
+  delta.html ............... source de l'artefact Claude (fragment)
+  index.html ............... page autonome, à ouvrir hors ligne
+  planche.html ............. planche de contrôle des dessins (générée)
+
+
+COMMENT MODIFIER LE SITE
+------------------------
+
+1. Éditer un fichier dans src/ (jamais delta.html ni index.html).
+2. Lancer les vérifications :        node _check.js
+   Il contrôle la syntaxe, les identifiants uniques, les bonnes
+   réponses dans les bornes, le barème des brevets (50 points), les
+   raretés (100 %), les fonds de carte, les générateurs de mini-jeux,
+   les couleurs des thèmes et les vues du routeur.
+3. Regénérer les pages :             node build.js
+4. Prévisualiser :                   node _serve.js
+   puis ouvrir http://localhost:4177
+5. Pour relire les dessins :         node _planche.js cartes
+                                     node _planche.js fiches
+                                     node _planche.js cours
+   puis ouvrir planche.html.
+
+Pour ajouter un chapitre : copier la structure d'un cours existant
+dans le fichier de la matière concernée. Les types de section
+disponibles sont p, h, ul, ol, def, anec, note, keep, doc, fig,
+chiffres, tab, rep.
+
+Pour ajouter une carte : les fonds sont dans CARTES_BASE
+(src/24-fonds.js, généré). Chaque zone y est une liste de contours
+dans un carré 0-100, plus un champ « sn » pour un libellé court coupé
+en lignes avec « | ». Pour ajouter un lieu annotable, complète
+PT_FR / PT_EUR / PT_MONDE dans _fonds.js avec ses coordonnées
+(longitude, latitude) puis relance `node _fonds.js`.
+
+Le vérificateur contrôle aussi que chaque légende tient dans sa figure
+et que chaque nom de lieu ou de zone employé existe bien dans le fond.
